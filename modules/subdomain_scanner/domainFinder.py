@@ -24,14 +24,17 @@ def subdomain_finder(domain):
             #
             answers=resolver.resolve(full_domain) #the resolver will try to resolve the full domain name and if it finds it, it will print it. If it doesn't find it, it will raise an exception and the code will move on to the next subdomain in the list.
             print(f"Subdomain found: {full_domain}")
-            
+
         except dns.resolver.NoAnswer:
             print(f"No answer for: {full_domain}")
 
 
 
 # function call using the domain name as an argument
-subdomain_finder("ukh.edu.krd") 
+#users input the domain name 
+subdomain_finder(input("Enter the domain name: ")) 
+
+
 
 
 
