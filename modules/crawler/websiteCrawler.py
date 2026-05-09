@@ -1,3 +1,10 @@
+
+'''
+Website Crawler(find links and pages)
+This module automatically explores a website extracts and collects links/pages from the target website used for reconnaissance and website mapping
+
+'''
+
 import requests
 from bs4 import BeautifulSoup
 
