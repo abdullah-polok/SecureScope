@@ -3,7 +3,20 @@
 Website Crawler(find links and pages)
 This module automatically explores a website extracts and collects links/pages from the target website used for reconnaissance and website mapping
 
+How to develop a website crawler:
+
+=> Take website URL as input
+=> Send HTTP request to target page
+=> Parse HTML content
+=> Extract links (href)
+=> Store discovered URLs
+=> Avoid duplicate links
+=> Continue crawling discovered pages
+
 '''
+
+
+
 
 import requests
 from bs4 import BeautifulSoup
