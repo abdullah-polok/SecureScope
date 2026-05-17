@@ -39,9 +39,8 @@ def check_security_headers(url):
         print("Error connecting to target:", e)
 
 
-def scan_vulnerabilities(target):
+def scan_vulnerabilities():
+    target = input("Enter target URL (with http/https): ")        
     print(f"\nScanning for vulnerabilities on: {target}")
     check_security_headers(target)
 
-
-scan_vulnerabilities(input("Enter target URL: "))

@@ -1,15 +1,18 @@
 import os
 
 from pyfiglet import figlet_format
-from modules.file_integrity import fileIntegrity
-from modules.packet_sniffer import packetSniffer
-from modules.keylogger import keylogger
-from modules.password_analyzer import passwordAnalyzer
-from modules.port_scanner import portScanner
-from modules.vulner_scanner import vulnerScanner
-from modules.web_login_guesser import webLoginGusser
-from modules.website_crawler import websiteCrawler
-from modules.subdomain_scanner import domainFinder
+from colorama import Fore, Style, init
+
+
+from modules.file_integrity.fileIntegrity import check_integrity
+from modules.packet_sniffer.packetSniffer import sniffer
+from modules.keylogger.keylogger import start_keylogger
+from modules.password_analyzer.passwordAnalyzer import password_strength
+from modules.port_scanner.portScanner import scan_ports
+from modules.vulner_scanner.vulnerScanner import scan_vulnerabilities
+from modules.web_login_guesser.webLoginGusser import web_login_gusser
+from modules.website_crawler.websiteCrawler import crawl_website
+from modules.subdomain_scanner.domainFinder import subdomain_finder
 
 
 # # Clear terminal screen
@@ -19,15 +22,16 @@ from modules.subdomain_scanner import domainFinder
 
 # ASCII Banner
 def banner():
-   print(figlet_format("SecureScope"))
+   init(autoreset=True)
+   print(Fore.CYAN + figlet_format("SecureScope", font="slant"))
 
-   print("""
+   print(Fore.GREEN +"""
 ==================================================
 
         Scan | Monitor | Analyze | Protect
 
 ==================================================
-        SECURESCOPE - SECURITY TOOLKIT
+      Security Toolkit - Abdullah Al Rahman
 ==================================================
 
    [1] File Integrity Checker
@@ -47,6 +51,7 @@ def banner():
 
 # Main program
 def main():
+ print("Welcome to SecureScope - Your Ultimate Security Toolkit!")
  while True:
     # clear_screen()
      banner()
@@ -54,36 +59,31 @@ def main():
      choice = input("Select a module: ")
 
      if choice == "1":
-      if __name__ == "__main__":
-       fileIntegrity.fileIntegrityChecker.check_integrity()
+       check_integrity()
+     
      elif choice == "2":
-        packetSniffer.packetSniffer.start_sniffer()
+        sniffer()
 
      elif choice == "3":
-        keylogger.keylogger.start_keylogger()
+       start_keylogger()
+     
      elif choice == "4":
-        password = input("Enter password: ")
-        passwordAnalyzer.passwordAnalyzer.analyze_password(password)
-
+      password_strength() 
+     
      elif choice == "5":
-        target = input("Enter target IP/Host: ")
-        portScanner.portScanner.scan_ports(target)
+       scan_ports()
 
      elif choice == "6":
-        target = input("Enter target IP/Host: ")
-        vulnerScanner.vulnerScanner.scan_vulnerabilities(target)
+        scan_vulnerabilities()
 
      elif choice == "7":
-        url = input("Enter login URL: ")
-        webLoginGusser.webLoginGusser.guess_logins(url)
+        web_login_gusser()
 
      elif choice == "8":
-        url = input("Enter website URL: ")
-        websiteCrawler.websiteCrawler.crawl_website(url)
+       crawl_website()
 
      elif choice == "9":
-        domain = input("Enter domain: ")
-        domainFinder.domainFinder.find_subdomains(domain)
+        subdomain_finder()
 
      elif choice == "0":
         print("Exiting SecureScope...")
@@ -91,7 +91,7 @@ def main():
 
      else:
         print("Invalid option!")
-
+     
      input("\nPress Enter to continue...")
 
 

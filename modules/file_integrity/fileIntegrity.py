@@ -31,17 +31,18 @@ def generate_file_hash(file_path):
         print("File not found!")
         return None
 
-input_file_path = input("Enter file path: ")
 
-# generate original hash
-original_hash = generate_file_hash(input_file_path)
+def check_integrity():
+    input_file_path = input("Enter file path to check integrity: ")
+ # generate original hash
+    original_hash = generate_file_hash(input_file_path)
 
-# print hash value
-if original_hash:
-    print("Original Hash:", original_hash)
-    print(f"Original hash for {input_file_path}: {original_hash}")
-    new_hash = generate_file_hash(input_file_path)
-    if new_hash:
+ # print hash value
+    if original_hash:
+     print("Original Hash:", original_hash)
+     print(f"Original hash for {input_file_path}: {original_hash}")
+     new_hash = generate_file_hash(input_file_path)
+     if new_hash:
         print(f"New hash for {input_file_path}: {new_hash}")
         if original_hash == new_hash:
             print("File integrity no changes.")

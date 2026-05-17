@@ -17,22 +17,22 @@ Develooment steps:
 import re
 
 
-def password_strength(password):
+def password_strength():
+    password = input("Enter your password: ")
     if len(password)<8:
-        return "Password should be at least 8n characters"
+        print("Password should be at least 8 characters")
     elif not re.search("[a-z]",password):
-        return "Password should contain at least one lowercase letter:"
+        print("Password should contain at least one lowercase letter:")
     elif not re.search("[A-Z]",password):
-        return "Password should contain at least one uppercase letter:"
+        print("Password should contain at least one uppercase letter:")
     elif not re.search("[0-9]",password):
-        return "Password should contain at least one number:"
+        print("Password should contain at least one number:")
     elif not re.search("[!@#$%^&*(),.?\":{}|<>]",password):
-        return "Password should contain at least one special character:"
+        print("Password should contain at least one special character:")
     else:
-        return "Password is strong"
+        print("Password is strong")
     
 
 
-input_password = input("Enter your password: ")
-result = password_strength(input_password)
-print(result)
+
+

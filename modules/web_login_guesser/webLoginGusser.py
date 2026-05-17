@@ -15,7 +15,10 @@ Development Steps
 
 import requests
 
-def web_login_gusser(url, username, password):
+def web_login_gusser():
+    url = input("Enter the login URL: ")
+    username = input("Enter the username: ")
+    password = input("Enter the password: ")
 # This function try to log in to a web application using the provided URL, username, and password  
     try:
         #send a post request to the login website with the given username and password
@@ -28,10 +31,3 @@ def web_login_gusser(url, username, password):
             print(f"Login failed for {username}:{password}")
     except Exception as e:
         print(f"An error occurred: {e}")
-
-
-input_url = input("Enter the login URL: ")
-input_username = input("Enter the username: ")
-input_password = input("Enter the password: ")
-
-web_login_gusser(input_url, input_username, input_password)

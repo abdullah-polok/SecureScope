@@ -11,11 +11,14 @@ Development steps:
 """
 
 import scapy.all as scapy
+import scapy.all as scapy
 
 
 
 # Function to start sniffing on a specified interface
-def sniffer(interface):
+def sniffer():
+
+    interface = input("Enter the interface to sniff on (e.g., eth0, wlan0): ")
 # Use Scapy's sniff function to capture packets on the specified interface    
     scapy.sniff(iface=interface, store=False, prn=process_sniffed_packet)
 
@@ -25,5 +28,3 @@ def process_sniffed_packet(packet):
     print(packet.show())
 
 
-input_interface = input("Enter the interface to sniff on: ")
-sniffer(input_interface)

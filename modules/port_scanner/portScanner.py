@@ -15,7 +15,10 @@ Development Steps
 
 import socket
 
-def scan_ports(target,ports):
+def scan_ports():
+    target=input("Enter the target IP address: ")
+    ports=input("Enter the ports to scan (comma separated): ")
+    print(scan_ports(target, [int(port.strip()) for port in ports.split(",")]))
     open_ports=[]
     for port in ports:
   # Create a socket and try to connect to the target on the specified port
@@ -30,6 +33,3 @@ def scan_ports(target,ports):
     return open_ports
 
 
-input_target=input("Enter the target IP address: ")
-input_ports=input("Enter the ports to scan (comma separated): ")
-print(scan_ports(input_target, [int(port.strip()) for port in input_ports.split(",")]))

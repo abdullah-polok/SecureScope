@@ -13,7 +13,9 @@ subdomains=["wwww","mail","webmail","ftp","api","mail","server","dev","moodle"]
 
 
 #function to find subdomains
-def subdomain_finder(domain):
+def subdomain_finder():
+    domain = input("Enter the domain name: ")
+
     for subdomain in subdomains:
 
 
@@ -30,9 +32,6 @@ def subdomain_finder(domain):
 
 
 
-# function call using the domain name as an argument
-#users input the domain name 
-subdomain_finder(input("Enter the domain name: ")) 
 
 
 
